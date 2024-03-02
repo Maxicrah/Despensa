@@ -3,10 +3,12 @@ package com.maxi.despensa.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.maxi.despensa.dao.IClienteDAO;
 import com.maxi.despensa.model.Cliente;
 
+@Service
 public class ClienteService implements IClienteService{
 
 	
