@@ -46,6 +46,18 @@ public class ProductoController {
 		return "Producto eliminado";
 	}
 	
+	@PutMapping("/decrementar/stock/{idPr}")
+	public String decrementProduct(@PathVariable Long idPr) {
+		prodServ.decrementStockProduct(idPr);
+		return "Stock decrementado";
+	}
+	
+	@PutMapping("/agregar/stock/{idProdu}/{cantAdd}")
+	public String addProduct(@PathVariable Long idProdu,@PathVariable Integer cantAdd) {
+		prodServ.addStock(idProdu, cantAdd);
+		return "Stock añadido";
+	}
+	
 	@PutMapping("/editar/{idProducto}")
 	public Producto editProduct(@PathVariable Long idProducto, @RequestBody Producto prod) {
 		

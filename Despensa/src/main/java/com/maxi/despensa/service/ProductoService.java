@@ -21,8 +21,16 @@ public class ProductoService implements IProductoService{
 	}
 
 	@Override
-	public void deleteProduct(Long id) {
-		productDAO.deleteById(id);
+	public void decrementStockProduct(Long id) {
+		Producto prod = this.getProduct(id);
+		Integer stock = prod.getStock();
+		if(stock>0) {
+			stock--;
+			prod.setStock(stock);
+			this.saveProduct(prod);
+		}else {
+			productDAO.deleteById(id);
+		}
 	}
 
 	@Override
@@ -51,6 +59,22 @@ public class ProductoService implements IProductoService{
 		this.saveProduct(product);
 		
 		return product;
+	}
+
+	@Override
+	public void deleteProduct(Long id) {
+		productDAO.deleteById(id);
+	}
+
+	@Override
+	public void addStock(Long id, Integer cantAdd) {
+		
+		Producto prod = this.getProduct(id);
+		Integer stock = prod.getStock();
+		stock = stock + cantAdd;
+		prod.setStock(stock);
+		this.saveProduct(prod);
+		
 	}
 
 	

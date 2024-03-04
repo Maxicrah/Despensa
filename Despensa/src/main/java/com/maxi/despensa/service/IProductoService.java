@@ -9,7 +9,13 @@ public interface IProductoService {
 	//crear producto
 	public Producto saveProduct(Producto prod);
 
-	//eliminar producto
+	//decrementa el stock de un producto
+	public void decrementStockProduct(Long id);
+	
+	//agrega stock de un producto
+	public void addStock(Long id, Integer cantAdd);
+	
+	//elimina un producto 
 	public void deleteProduct(Long id);
 	
 	//traer un producto

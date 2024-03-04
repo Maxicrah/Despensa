@@ -29,7 +29,7 @@ public class Producto {
 	private String descripcion;
 	private String nombre;
 	private Double precio;
-	private String stock;
+	private Integer stock;
 	@ManyToMany(mappedBy="productos")
 	private List<CarritoDeCompra> carritosCompras;
 	@ManyToOne
