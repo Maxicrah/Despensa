@@ -25,8 +25,12 @@ public class ProveedorController {
 	
 	@PostMapping("/crear")
 	public String createProveedor(@RequestBody Proveedor prov) {
-		provServ.saveProveedor(prov);
-		return "Proveedo creado";
+		Proveedor proveedor = provServ.saveProveedor(prov);
+		if(proveedor!=null) {
+			return "Proveedor creado";
+		}else {
+			return "NO se creo nada";
+		}
 	}
 	
 	@GetMapping("/traer/{id}")
